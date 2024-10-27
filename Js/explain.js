@@ -30,18 +30,18 @@ onValue(ref(database, "game/sketch1"), (snapshot) => {
     const doc =
       previewFrame1.contentDocument || previewFrame1.contentWindow.document;
     const htmlContent = `
- <!DOCTYPE html>
- <html lang="ja">
- <head>
- <meta charset="UTF-8">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
- </head>
- <body style="margin:0">
- <script>
- ${data.sketch1}
- </script>
- </body>
- </html>`;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body style="margin:0">
+<script>
+${data.sketch1}
+</script>
+</body>
+</html>`;
     doc.open();
     doc.write(htmlContent);
     doc.close();
