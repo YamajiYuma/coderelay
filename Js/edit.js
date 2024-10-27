@@ -90,3 +90,17 @@ ${code1}
     console.error("sketch-frame element not found");
   }
 }
+
+// textareaでtabキーを入力できるようにする（タブ＝半角スペース×2）
+document.getElementById('code1').addEventListener('keydown', (ev) => {
+  if (ev.key !== 'Tab') return;
+  
+  ev.preventDefault();
+  const text = ev.currentTarget;
+  const start = text.selectionStart;
+  const end = text.selectionEnd;
+  text.value = '' + (text.value.substring(0, start)) + "  " + (text.value.substring(end));
+  text.selectionStart = start + 2;
+  text.selectionEnd = start + 2;
+  return false;
+});

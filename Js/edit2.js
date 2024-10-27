@@ -72,3 +72,17 @@ ${code2}
     newDoc.close();
   }
 }
+
+// textareaでtabキーを入力できるようにする（タブ＝半角スペース×2）
+document.getElementById('code2').addEventListener('keydown', (ev) => {
+  if (ev.key !== 'Tab') return;
+  
+  ev.preventDefault();
+  const text = ev.currentTarget;
+  const start = text.selectionStart;
+  const end = text.selectionEnd;
+  text.value = '' + (text.value.substring(0, start)) + "  " + (text.value.substring(end));
+  text.selectionStart = start + 2;
+  text.selectionEnd = start + 2;
+  return false;
+});
