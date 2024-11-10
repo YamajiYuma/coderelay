@@ -23,6 +23,16 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 setupPlayer4();
+
+const explain2Element = document.querySelector(".explain2");
+// explanation2を表示
+onValue(ref(database, "game/explanation2"), (snapshot) => {
+  const data = snapshot.val();
+  if (data && data.explanation2) {
+    explain2Element.textContent = `説明2: ${data.explanation2}`;
+  }
+});
+
 // プレイヤー4の設定
 function setupPlayer4() {
   const runButton2 = document.getElementById("run-btn2");
