@@ -24,12 +24,12 @@ const database = getDatabase(app);
 
 setupPlayer4();
 
-const explain2Element = document.querySelector(".explain2");
-// explanation2を表示
-onValue(ref(database, "game/explanation2"), (snapshot) => {
+const explain1Element = document.querySelector(".explain1");
+// explanation1を表示
+onValue(ref(database, "game/explanation1"), (snapshot) => {
   const data = snapshot.val();
-  if (data && data.explanation2) {
-    explain2Element.textContent = `説明2: ${data.explanation2}`;
+  if (data && data.explanation1) {
+    explain1Element.textContent = `説明1: ${data.explanation1}`;
   }
 });
 
